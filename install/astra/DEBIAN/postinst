@@ -1,0 +1,24 @@
+#!/bin/sh
+
+
+echo "добавляем пользователя"
+addgroup --system --gid 2222 fss
+adduser --gecos "FileShareServer user" --disabled-login --quiet --gid 2222 fss || true
+pdpl-user -l 0:3 -i 63 -c 0:0 fss
+
+echo "создание и настройка директории для хранения файлов"
+
+mkdir -p /home/fss/FSS
+chown -R fss:fss /home/fss/FSS
+chmod -R 777 /home/fss/FSS
+
+DAEMON_NAME="/opt/rbt/FSS/bin/fsserver"
+
+systemctl daemon-reload
+
+createdb -U postgres -p 5432 file_share
+psql -U postgres -p 5432 -d file_share < /opt/rbt/FSS/database/file_share.sql
+
+systemctl enable fsserver
+systemctl start fsserver
+

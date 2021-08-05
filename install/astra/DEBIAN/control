@@ -1,0 +1,8 @@
+package: file-share-server
+Version: 0.0.0.1
+Maintainer: Anikeev A.A.
+Architecture: amd64
+Section: Utilities
+Description:file sharing server
+Priority: Optional
+Depends: postgresql

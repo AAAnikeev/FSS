@@ -1,0 +1,16 @@
+#DAEMON=/opt/rbt/FSS/bin/fsserver
+
+[Unit]
+Description=File sharing server 
+After=network.target
+
+[Service]
+Type=simple
+User=root
+#StandardInput=tty-force
+#PIDFile=/tmp/fss_pidfile.dl
+ExecStart=/opt/rbt/FSS/bin/fsserver
+WorkingDirectory=/home/fss
+
+[Install]
+WantedBy=multi-user.target
