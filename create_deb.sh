@@ -8,6 +8,15 @@ cd $ABSDIR
 PATHDIR=./install/astra/opt/rbt/FSS
 rm -r $PATHDIR/bin
 mkdir $PATHDIR/bin
+
+SYSTEMDPATH=./install/astra/etc/systemd/system
+BINPATH=./install/astra/opt/rbt/FSS/bin
+DBPATH=./install/astra/opt/rbt/FSS/database
+
+mkdir -p $SYSTEMDPATH
+mkdir -p $BINPATH
+mkdir -p $DBPATH
+
 cp  ./etc/fsserver.service ./install/astra/etc/systemd/system
 cp ./etc/file_share.sql ./install/astra/opt/rbt/FSS/database/
 
