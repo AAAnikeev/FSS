@@ -43,7 +43,7 @@ int registerFileIntoDB(std::string group_id, file_struct file){
     return db_manager.registerFile(group_id, file);
 }
 
-std::string generateRandomString()//TODO: может бытьдважды сгенерирован один и тот же код, это может вызвать проблемы, когда много файлов с одним именем будет записано
+std::string generateRandomString()//TODO: может быть дважды сгенерирован один и тот же код, это может вызвать проблемы, когда много файлов с одним именем будет записано
 {
     std::lock_guard<std::mutex> lock(generator_m);
     static boost::uuids::random_generator generator;
