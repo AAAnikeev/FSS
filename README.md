@@ -3,6 +3,7 @@ Multithreading file-sharing server, which use PostgreSQL for save url-local path
 
 Compile use qmake:
 1)  compile.sh
+
 Compile use cmake:
 1) cmake .
 2) make
